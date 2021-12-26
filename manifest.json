@@ -1,0 +1,16 @@
+{
+    "content_scripts": [
+        {
+            "matches": ["*://*.youtube.com/*"],
+            "js": ["youslow.js"]
+        }
+    ],
+    "description": "Speed up YouRube",
+    "icons": {
+        "48": "icon.png",
+        "96": "icon96.png"
+    },
+    "version": "0.1",
+    "manifest_version": 2,
+    "name": "youSlow"
+}
