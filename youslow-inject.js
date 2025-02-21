@@ -17,7 +17,7 @@
         const speed = enabled ? currentSpeed : 1;
 
         if (button) {
-            button.innerHTML = `${speed.toFixed(1)}x`;
+            button.textContent = `${speed.toFixed(1)}x`;
         }
 
         const video = getVideo();
@@ -67,4 +67,3 @@
         }
     }, 100);
 })();
-

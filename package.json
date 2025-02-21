@@ -1,0 +1,11 @@
+{
+  "name": "youslow",
+  "version": "0.2.0",
+  "scripts": {},
+  "author": "ivanik <m@ivanik.ru>",
+  "license": "GPL-3.0-only",
+  "description": "Granular video speed control on YouTube",
+  "devDependencies": {
+    "web-ext": "^8.4.0"
+  }
+}

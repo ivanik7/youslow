@@ -1,16 +1,25 @@
 {
+    "manifest_version": 3,
+    "name": "youSlow",
+    "version": "0.2.0",
     "content_scripts": [
         {
-            "matches": ["*://*.youtube.com/*"],
-            "js": ["youslow.js"]
+            "matches": [
+                "*://*.youtube.com/*"
+            ],
+            "js": [
+                "youslow-inject.js"
+            ]
         }
     ],
-    "description": "Speed up YouRube",
-    "icons": {
-        "48": "icon.png",
-        "96": "icon96.png"
+    "description": "Granular video speed control on YouTube",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "youslow@ivanik.ru"
+        }
     },
-    "version": "0.1",
-    "manifest_version": 2,
-    "name": "youSlow"
+    "icons": {
+        "48": "icons/icon48.png",
+        "96": "icons/icon96.png"
+    }
 }
