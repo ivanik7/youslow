@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+#popup-body {
+    width: 300px;
+    height: 500px;
+}
+
+.hotkey-keys-editing {
+    @apply bg-gray-500 animate-pulse;
+}

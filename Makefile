@@ -2,9 +2,9 @@
 install-tools:
 	npm ci
 
-clean: zip-clean icons-clean
+clean: icons-clean tailwind-clean zip-clean
 
-build: clean icons-resize lint zip
+build: icons-resize tailwind-build zip
 
 run-ff:
 	npx web-ext run
@@ -20,6 +20,15 @@ icons-resize:
 	magick icon.png -resize 48 -quality 10 icons/icon48.png
 	magick icon.png -resize 96 -quality 10 icons/icon96.png
 
+tailwind-build:
+	npx @tailwindcss/cli -i ./style/style.css -o ./pages/style.css
+
+tailwind-watch:
+	npx @tailwindcss/cli -i ./style/style.css -o ./pages/style.css --watch
+
+tailwind-clean:
+	rm -f ./pages/tailwind.css
+
 zip-clean:
 	rm -f youslow.zip
 
@@ -27,4 +36,5 @@ zip:
 	zip youslow.zip \
 		manifest.json \
 		youslow-inject.js \
-		icons/*
+		icons/* \
+		pages/*

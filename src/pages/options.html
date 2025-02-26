@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="flex flex-col m-2">
+        <h2 class="text-2xl">Hotkeys</h2>
+        <table class="table-fixed">
+            <thead>
+                <tr>
+                    <td class="font-bold">Action</td>
+                    <td class="font-bold">Key</td>
+                </tr>
+            </thead>
+            <tbody id="hotkey-table-body">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="hidden">
+      <table id="template-hotkey-row">
+        <tr template-class="hotkey-keys" data-hotkey="{{key}}" class="cursor-pointer border-b-2 border-b-gray-500">
+          <td>{{name}}</td>
+          <td>
+            <div class="flex flex-row">
+              {{keys}}
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <div id="template-hotkey-key">
+        <div class="
+          m-1
+          bg-gray-300
+          h-9
+          min-w-9
+          px-1
+          text-center text-black text-xl font-bold
+          border-4 border-gray-700"
+          >
+            {{key}}
+          </div>
+        </div>
+    </div>
+    <script src="options.js" type="module"></script>
+  </body>
+</html>

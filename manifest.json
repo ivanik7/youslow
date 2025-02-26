@@ -8,10 +8,14 @@
                 "*://*.youtube.com/*"
             ],
             "js": [
-                "youslow-inject.js"
+                "src/youslow-inject.js"
             ]
         }
     ],
+    "web_accessible_resources": [{
+        "matches": ["<all_urls>"],
+        "resources": ["src/options.js"]
+    }],
     "description": "Granular video speed control on YouTube",
     "browser_specific_settings": {
         "gecko": {
@@ -21,5 +25,15 @@
     "icons": {
         "48": "icons/icon48.png",
         "96": "icons/icon96.png"
-    }
+    },
+    "action": {
+        "default_title": "YouSlow",
+        "default_popup": "src/pages/popup.html"
+    },
+    "options_ui": {
+        "page": "src/pages/options.html"
+    },
+    "permissions": [
+        "storage"
+    ]
 }

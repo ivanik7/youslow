@@ -1,8 +1,10 @@
-(() => {
+(async () => {
+    const {get} = await import(browser.runtime.getURL('src/options.js'));
+
+    const options = await get();
+    
     let currentSpeed = 2;
     let enabled = false;
-    
-    let button;
     
     let video;
     function getVideo() {
@@ -13,6 +15,7 @@
         return video;
     }
 
+    let button;
     function applySpeed() {
         const speed = enabled ? currentSpeed : 1;
 
@@ -45,18 +48,39 @@
         rightControlsElement.prepend(button);
     };
 
+    function hotkey(e) {
+        for (const hotkeyName in options.hotkeys) {
+            if (Object.prototype.hasOwnProperty.call(options.hotkeys, hotkeyName)) {
+                const hotkey = options.hotkeys[hotkeyName];
+                
+                if (
+                    e.code === hotkey.code &&
+                    e.altKey === hotkey.altKey &&
+                    e.ctrlKey === hotkey.ctrlKey &&
+                    e.shiftKey === hotkey.shiftKey
+                ) {
+                    return hotkeyName;
+                } 
+            }
+        }
+    }
+
     document.addEventListener('keyup', (e) => {
-        if (e.code === "KeyZ") {
-            currentSpeed -= 0.1;
-            enabled = true;
-            applySpeed();
-        } else if (e.code === "KeyX") {
-            currentSpeed += 0.1;
-            enabled = true;
-            applySpeed();
-        } else if (e.code === "KeyV") {
-            enabled = !enabled;
-            applySpeed();
+        switch (hotkey(e)) {
+            case 'slowdown':
+                currentSpeed -= 0.1;
+                enabled = true;
+                applySpeed();
+                break;
+            case 'speedup':
+                currentSpeed += 0.1;
+                enabled = true;
+                applySpeed();
+                break;
+            case 'toggle':
+                enabled = !enabled;
+                applySpeed();
+                break;
         }
     });
 

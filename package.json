@@ -7,5 +7,9 @@
   "description": "Granular video speed control on YouTube",
   "devDependencies": {
     "web-ext": "^8.4.0"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.8",
+    "tailwindcss": "^4.0.8"
   }
 }
