@@ -21,10 +21,10 @@ icons-resize:
 	magick icon.png -resize 96 -quality 10 icons/icon96.png
 
 tailwind-build:
-	npx @tailwindcss/cli -i ./style/style.css -o ./pages/style.css
+	npx @tailwindcss/cli -i ./src/style/style.css -o ./src/pages/style.css
 
 tailwind-watch:
-	npx @tailwindcss/cli -i ./style/style.css -o ./pages/style.css --watch
+	npx @tailwindcss/cli -i ./src/style/style.css -o ./src/pages/style.css --watch
 
 tailwind-clean:
 	rm -f ./pages/tailwind.css

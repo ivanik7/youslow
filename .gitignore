@@ -1,4 +1,4 @@
 node_modules
 icons
 /youslow.zip
-pages/tailwind.css
+src/pages/style.css
