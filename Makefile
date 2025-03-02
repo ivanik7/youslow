@@ -2,10 +2,10 @@
 install-tools:
 	npm ci
 
-clean: icons-clean tailwind-clean zip-clean
+clean: icons-clean tailwind-clean
+	rm -rf build
 
-build-prepare:
-	icons-resize tailwind-build
+build-prepare: icons-resize tailwind-build
 
 build-firefox:
 	mkdir -p build
@@ -23,6 +23,8 @@ build-chrome:
 		icons/* \
 		src/* \
 		node_modules/webextension-polyfill/dist/browser-polyfill.min.js
+
+build: build-prepare build-chrome build-firefox
 
 run-firefox:
 	npx web-ext run
@@ -46,13 +48,3 @@ tailwind-watch:
 
 tailwind-clean:
 	rm -f ./pages/tailwind.css
-
-zip-clean:
-	rm -f youslow.zip
-
-zip:
-	zip youslow.zip \
-		manifest.json \
-		youslow-inject.js \
-		icons/* \
-		pages/*
