@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light" />
     <title>YouSlow</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="popup-body">
-    <div class="bg-gray-600 flex flex-col w-full h-full">
-        <div class="bg-gray-500 flex flex-row w-full">
-            <img src="../icons/icons96.png">
-            <h1>YouSlow</h1>
-        </div>
-        <div class="flex flex-col text">
-            <h2>Hotkeys:</h2>
-            <div class="flex flex-row">
-                <div class="flex flex-col">
-                    <div>Speed up:</div>
-                    <div>z</div>
-                </div>
+<body class="w-64 bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-200">
+    <header class="bg-red-600 text-white flex items-center justify-center p-3 shadow-md">
+        <h1 class="text-lg font-semibold">YouSlow</h1>
+    </header>
+    
+    <div id="hotkey-table-body" class="p-4 space-y-3">
+
+    </div>
+    
+    <div class="hidden">
+        <div id="template-hotkey-row">
+            <div class="flex justify-between bg-white dark:bg-gray-800 p-2 rounded-lg shadow-sm">
+                <span class="font-medium">{{name}}</span>
+                <span class="text-gray-600 dark:text-gray-400">{{keys}}</span>
             </div>
-        </div>
-        <div>
-            <button id="setting-open">Settings</button>
         </div>
     </div>
 
+    <div class="p-4">
+        <button id="setting-open" class="w-full bg-red-600 text-white py-2 rounded-lg shadow-md hover:bg-red-700">Settings</button>
+    </div>
+
+    <script src="/node_modules/webextension-polyfill/dist/browser-polyfill.min.js"></script>
     <script src="popup.js" type="module"></script>
 </body>
 </html>

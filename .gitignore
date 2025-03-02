@@ -1,4 +1,5 @@
 node_modules
 icons
-/youslow.zip
+build
 src/pages/style.css
+manifest.json

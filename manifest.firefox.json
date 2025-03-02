@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "YouSlow",
+    "version": "0.2.0",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.youtube.com/*"
+            ],
+            "js": [
+                "src/youslow-inject.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [{
+        "matches": ["<all_urls>"],
+        "resources": ["src/options.js"]
+    }],
+    "description": "Granular video speed control on YouTube",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "youslow@ivanik.ru"
+        }
+    },
+    "icons": {
+        "48": "icons/icon48.png",
+        "96": "icons/icon96.png"
+    },
+    "action": {
+        "default_title": "YouSlow",
+        "default_popup": "src/pages/popup.html"
+    },
+    "options_ui": {
+        "page": "src/pages/options.html"
+    },
+    "permissions": [
+        "storage"
+    ]
+}

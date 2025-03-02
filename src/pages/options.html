@@ -1,54 +1,28 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="color-scheme" content="dark light" />
-    <link rel="stylesheet" href="style.css">
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="color-scheme" content="dark light" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-  <body>
-    <div class="flex flex-col m-2">
-        <h2 class="text-2xl">Hotkeys</h2>
-        <table class="table-fixed">
-            <thead>
-                <tr>
-                    <td class="font-bold">Action</td>
-                    <td class="font-bold">Key</td>
-                </tr>
-            </thead>
-            <tbody id="hotkey-table-body">
-
-            </tbody>
-        </table>
-    </div>
-
-    <div class="hidden">
-      <table id="template-hotkey-row">
-        <tr template-class="hotkey-keys" data-hotkey="{{key}}" class="cursor-pointer border-b-2 border-b-gray-500">
-          <td>{{name}}</td>
-          <td>
-            <div class="flex flex-row">
-              {{keys}}
-            </div>
-          </td>
-        </tr>
-      </table>
-
-      <div id="template-hotkey-key">
-        <div class="
-          m-1
-          bg-gray-300
-          h-9
-          min-w-9
-          px-1
-          text-center text-black text-xl font-bold
-          border-4 border-gray-700"
-          >
-            {{key}}
-          </div>
+    <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-200">
+        <div class="flex flex-col m-4">
+            <h2 class="text-2xl">Hotkeys</h2>
+            <div id="hotkey-table-body" class="py-4 space-y-3"></div>
         </div>
-    </div>
-    <script src="options.js" type="module"></script>
-  </body>
+
+        <div class="hidden">
+            <div id="template-hotkey-row">
+                <div data-hotkey="{{key}}" template-class="hotkey-keys flex justify-between bg-white dark:bg-gray-800 p-2 rounded-lg shadow-sm">
+                  <span class="font-medium">{{name}}</span>
+                  <span class="text-gray-600 dark:text-gray-400">{{keys}}</span>
+              </div>
+            </div>
+        </div>
+
+        <script src="/node_modules/webextension-polyfill/dist/browser-polyfill.min.js"></script>
+        <script src="options.js" type="module"></script>
+    </body>
 </html>

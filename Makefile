@@ -4,9 +4,27 @@ install-tools:
 
 clean: icons-clean tailwind-clean zip-clean
 
-build: icons-resize tailwind-build zip
+build-prepare:
+	icons-resize tailwind-build
 
-run-ff:
+build-firefox:
+	mkdir -p build
+	cp manifest.firefox.json manifest.json
+	zip build/youslow-firefox.zip \
+		manifest.json \
+		icons/* \
+		src/*
+
+build-chrome:
+	mkdir -p build
+	cp manifest.chrome.json manifest.json
+	zip build/youslow-chrome.zip \
+		manifest.json \
+		icons/* \
+		src/* \
+		node_modules/webextension-polyfill/dist/browser-polyfill.min.js
+
+run-firefox:
 	npx web-ext run
 
 lint:
