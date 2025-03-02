@@ -10,18 +10,18 @@ build-prepare: icons-resize tailwind-build
 build-firefox:
 	mkdir -p build
 	cp manifest.firefox.json manifest.json
-	zip build/youslow-firefox.zip \
+	zip -r build/youslow-firefox.xpi \
 		manifest.json \
 		icons/* \
-		src/*
+		src
 
 build-chrome:
 	mkdir -p build
 	cp manifest.chrome.json manifest.json
-	zip build/youslow-chrome.zip \
+	zip -r build/youslow-chrome.zip \
 		manifest.json \
 		icons/* \
-		src/* \
+		src \
 		node_modules/webextension-polyfill/dist/browser-polyfill.min.js
 
 build: build-prepare build-chrome build-firefox
