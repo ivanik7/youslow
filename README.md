@@ -2,13 +2,13 @@
 
 ## Installation
 
-- [https://addons.mozilla.org/addon/youslow/](Firefox Add-on Store)
+- [Firefox Add-on Store](https://addons.mozilla.org/addon/youslow/)
 
 ## Screenshots
 
-![screenshots/1-one-click-speed-toggle.jpg](One click speed toggle)
-![screenshots/2-change-speed-using-hotkeys.jpg](Change video speed using hotkeys)
-![screenshots/3-set-default-speed.jpg](Set default video speed and customize hotkeys)
+![One click speed toggle](screenshots/1-one-click-speed-toggle.jpg)
+![Change video speed using hotkeys](screenshots/2-change-speed-using-hotkeys.jpg)
+![Set default video speed and customize hotkeys](screenshots/3-set-default-speed.jpg)
 
 ## Building
 
