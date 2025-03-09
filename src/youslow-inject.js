@@ -3,7 +3,7 @@
 
     const options = await get();
     
-    let currentSpeed = 2;
+    let currentSpeed = options.speed.default;
     let enabled = false;
     
     let video;
@@ -68,12 +68,12 @@
     document.addEventListener('keyup', (e) => {
         switch (hotkey(e)) {
             case 'slowdown':
-                currentSpeed -= 0.1;
+                currentSpeed = Math.max(0.1, currentSpeed - options.speed.step);
                 enabled = true;
                 applySpeed();
                 break;
             case 'speedup':
-                currentSpeed += 0.1;
+                currentSpeed = Math.min(16, currentSpeed + options.speed.step);
                 enabled = true;
                 applySpeed();
                 break;

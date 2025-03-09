@@ -37,8 +37,10 @@ icons-clean:
 
 icons-resize:
 	mkdir -p icons
-	magick icon.png -resize 48 -quality 10 icons/icon48.png
-	magick icon.png -resize 96 -quality 10 icons/icon96.png
+	magick icon.png -scale 48 -quality 10 icons/icon48.png
+	magick icon.png -scale 96 -quality 10 icons/icon96.png
+	magick icon.png -scale 256 -quality 10 icons/icon256.png
+	magick icon.png -scale 512 -quality 10 build/icon.png
 
 tailwind-build:
 	npx @tailwindcss/cli -i ./src/style/style.css -o ./src/pages/style.css

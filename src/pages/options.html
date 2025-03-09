@@ -13,6 +13,30 @@
             <div id="hotkey-table-body" class="py-4 space-y-3"></div>
         </div>
 
+        <div class="flex flex-col m-4">
+            <h2 class="text-2xl">Speed Settings</h2>
+            <div class="py-4 space-y-3">
+                <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-2 rounded-lg shadow-sm">
+                    <span class="font-medium">Speed Step</span>
+                    <input type="number" 
+                           data-option-path="speed.step"
+                           min="0.1" 
+                           max="1" 
+                           step="0.01" 
+                           class="w-20 p-1 text-right bg-gray-100 dark:bg-gray-700 rounded">
+                </div>
+                <div class="flex justify-between items-center bg-white dark:bg-gray-800 p-2 rounded-lg shadow-sm">
+                    <span class="font-medium">Default Speed</span>
+                    <input type="number" 
+                           data-option-path="speed.default"
+                           min="0.1" 
+                           max="16" 
+                           step="0.01" 
+                           class="w-20 p-1 text-right bg-gray-100 dark:bg-gray-700 rounded">
+                </div>
+            </div>
+        </div>
+
         <div class="hidden">
             <div id="template-hotkey-row">
                 <div data-hotkey="{{key}}" template-class="hotkey-keys flex justify-between bg-white dark:bg-gray-800 p-2 rounded-lg shadow-sm">

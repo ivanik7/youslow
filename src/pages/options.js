@@ -1,10 +1,47 @@
-import { update } from '../options.js';
+import { get, update } from '../options.js';
 import { q, qEach } from './dom-utils.js';
 import { showHotkeys as showHotkeysHtml } from './render-keys.js';
 
-
-
 let editedKey = null;
+
+function getNestedValue(obj, path) {
+    return path.split('.').reduce((current, key) => current?.[key], obj);
+}
+
+function setNestedValue(obj, path, value) {
+    const keys = path.split('.');
+    const lastKey = keys.pop();
+    const target = keys.reduce((current, key) => current[key] = current[key] || {}, obj);
+    target[lastKey] = value;
+    return obj;
+}
+
+async function initializeOptionInputs() {
+    const options = await get();
+    
+    qEach('[data-option-path]', (input) => {
+        const path = input.dataset.optionPath;
+        const value = getNestedValue(options, path);
+        
+        if (value !== undefined) {
+            input.value = value;
+        }
+
+        input.addEventListener('change', async () => {
+            let newValue = input.value;
+            
+            if (input.type === 'number') {
+                newValue = parseFloat(newValue);
+            } else if (input.type === 'checkbox') {
+                newValue = input.checked;
+            }
+
+            await update(options => {
+                setNestedValue(options, path, newValue);
+            });
+        });
+    });
+}
 
 function beginKeyEdit(key) {
     stopKeyEdit();
@@ -52,4 +89,7 @@ async function showHotkeys() {
     })
 }
 
-showHotkeys();
+document.addEventListener('DOMContentLoaded', () => {
+    initializeOptionInputs();
+    showHotkeys();
+});

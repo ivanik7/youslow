@@ -19,6 +19,10 @@ const defaultOptions = {
             shiftKey: false,
         },
     },
+    speed: {
+        step: 0.1,
+        default: 2,
+    }
 };
 
 function validate(options) {
