@@ -2,6 +2,7 @@
 
 ## Installation
 
+- [Chrome Web Store](https://chromewebstore.google.com/detail/youslow/lmgggafpembamdelglllebajidmmdmlp/)
 - [Firefox Add-on Store](https://addons.mozilla.org/addon/youslow/)
 
 ## Screenshots
