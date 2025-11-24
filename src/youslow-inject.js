@@ -36,7 +36,9 @@
         
         button.classList.add("ytp-button");
         button.classList.add("ytp-time-display");
-        button.style.textAlign = "right";
+        button.style.display = "flex";
+        button.style.justifyContent = "center";
+        button.style.alignItems = "center";
 
         applySpeed();
 
@@ -89,5 +91,5 @@
             addControls();
             clearInterval(checkExist);
         }
-    }, 100);
+    }, 500);
 })();

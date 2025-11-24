@@ -13,7 +13,7 @@ const defaultOptions = {
             shiftKey: false,
         },
         toggle: {
-            code: "KeyV",
+            code: "KeyИ",
             altKey: false,
             ctrlKey: false,
             shiftKey: false,
